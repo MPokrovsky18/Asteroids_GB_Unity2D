@@ -130,6 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 5
+  _acceleration: 5
   _hp: 100
   _force: 500
   _bullet: {fileID: 918583360340917246, guid: f49d305569907d742a7b16ba865bae25, type: 3}
