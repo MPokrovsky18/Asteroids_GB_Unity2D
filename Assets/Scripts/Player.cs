@@ -11,14 +11,15 @@ namespace Asteroids
         [SerializeField] private float _force;
         [SerializeField] private Rigidbody2D _bullet;
         [SerializeField] private Transform _barrel;
-        private Vector3 _move;
+        private MoveTransform _moveTransform;
 
+        private void Start()
+        {
+            _moveTransform = new MoveTransform(transform, _speed);
+        }
         private void Update()
         {
-            var deltatime = Time.deltaTime;
-            var speed = _speed * deltatime;
-            _move.Set(Input.GetAxis("Horizontal") * speed, Input.GetAxis("Vertical") * speed, 0.0f);
-            transform.localPosition += _move;
+            _moveTransform.Move(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), Time.deltaTime);
 
             if (Input.GetButtonDown("Fire1"))
             {
@@ -29,7 +30,7 @@ namespace Asteroids
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            if(_hp <= 0)
+            if (_hp <= 0)
             {
                 Destroy(gameObject);
             }
