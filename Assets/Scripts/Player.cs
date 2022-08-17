@@ -12,32 +12,30 @@ namespace Asteroids
         [SerializeField] private float _force;
         [SerializeField] private Rigidbody2D _bullet;
         [SerializeField] private Transform _barrel;
-        private IMove _moveTransform;
+        private Camera _camera;
+        private Ship _ship;
 
         private void Start()
         {
-            _moveTransform = new AccelerationMove(transform, _speed, _acceleration);
+            _camera = Camera.main;
+            var moveTransform = new AccelerationMove(transform, _speed, _acceleration);
+            var rotation = new RotationShip(transform);
+            _ship = new Ship(moveTransform, rotation);
         }
         private void Update()
         {
-            _moveTransform.Move(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), Time.deltaTime);
+            var direction = Input.mousePosition - _camera.WorldToScreenPoint(transform.position);
+            _ship.Rotation(direction);
+            _ship.Move(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), Time.deltaTime);
 
             if (Input.GetKeyDown(KeyCode.LeftShift))
             {
-
-                if (_moveTransform is AccelerationMove accelerationMove)
-                {
-                    accelerationMove.AddAcceleration();
-                }
+                _ship.AddAcceleration();
             }
 
             if (Input.GetKeyUp(KeyCode.LeftShift))
             {
-
-                if (_moveTransform is AccelerationMove accelerationMove)
-                {
-                    accelerationMove.RemoveAcceleration();
-                }
+                _ship.RemoveAcceleration();
             }
 
             if (Input.GetButtonDown("Fire1"))
