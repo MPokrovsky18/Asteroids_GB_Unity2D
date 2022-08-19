@@ -41,7 +41,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8576545982005316844}
   - component: {fileID: 3616199232529136425}
-  - component: {fileID: 1575865005512748098}
   m_Layer: 0
   m_Name: Spaceship
   m_TagString: Untagged
@@ -117,22 +116,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1575865005512748098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 462942096572025303}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a9aab2290405a244978246bd0594da8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _weapon: {fileID: 7738805014775639030}
-  _speed: 5
-  _acceleration: 5
-  _hp: 100
 --- !u!1 &3438760617005127501
 GameObject:
   m_ObjectHideFlags: 0
