@@ -6,12 +6,12 @@ namespace Asteroids
 
     internal sealed class Player : MonoBehaviour
     {
+        [SerializeField] private Weapon _weapon;
+
         [SerializeField] private float _speed;
         [SerializeField] private float _acceleration;
         [SerializeField] private float _hp;
-        [SerializeField] private float _force;
-        [SerializeField] private Rigidbody2D _bullet;
-        [SerializeField] private Transform _barrel;
+
         private Camera _camera;
         private Ship _ship;
 
@@ -21,6 +21,7 @@ namespace Asteroids
             var moveTransform = new AccelerationMove(transform, _speed, _acceleration);
             var rotation = new RotationShip(transform);
             _ship = new Ship(moveTransform, rotation);
+
         }
         private void Update()
         {
@@ -40,8 +41,7 @@ namespace Asteroids
 
             if (Input.GetButtonDown("Fire1"))
             {
-                var temAmmution = Instantiate(_bullet, _barrel.position, _barrel.rotation);
-                temAmmution.AddForce(_barrel.up * _force);
+                _weapon.Attack();
             }
         }
 
