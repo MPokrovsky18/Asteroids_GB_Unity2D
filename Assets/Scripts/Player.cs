@@ -14,6 +14,7 @@ namespace Asteroids
 
         private Camera _camera;
         private Ship _ship;
+        private InputManager _inputManager;
 
         private void Start()
         {
@@ -21,28 +22,12 @@ namespace Asteroids
             var moveTransform = new AccelerationMove(transform, _speed, _acceleration);
             var rotation = new RotationShip(transform);
             _ship = new Ship(moveTransform, rotation);
+            _inputManager = new InputManager(_camera, _ship, _weapon, transform);
 
         }
         private void Update()
         {
-            var direction = Input.mousePosition - _camera.WorldToScreenPoint(transform.position);
-            _ship.Rotation(direction);
-            _ship.Move(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), Time.deltaTime);
-
-            if (Input.GetKeyDown(KeyCode.LeftShift))
-            {
-                _ship.AddAcceleration();
-            }
-
-            if (Input.GetKeyUp(KeyCode.LeftShift))
-            {
-                _ship.RemoveAcceleration();
-            }
-
-            if (Input.GetButtonDown("Fire1"))
-            {
-                _weapon.Attack();
-            }
+            _inputManager.GetInput();
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
