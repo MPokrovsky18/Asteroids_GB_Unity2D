@@ -31,7 +31,7 @@ namespace Asteroids
             var moveTransform = new AccelerationMove(rb, _speed, _acceleration);
             var rotation = new RotationShip(transform);
             _ship = new Ship(moveTransform, rotation);
-            _health = new Health(_hp);
+            _health = new Health(_hp, _hp);
             _inputManager = new InputManager(_camera, this, _ship, _weapon);
         }
 
@@ -48,7 +48,9 @@ namespace Asteroids
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            if(_health.CheckIsDied(damage: 1))
+            _health.ChangeCurrentHealth(_health.Current - 1);
+
+            if(_health.Current <= 0)
             {
                 Destroy(gameObject);
             }
