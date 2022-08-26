@@ -6,18 +6,18 @@ namespace Asteroids
 
     internal sealed class Health
     {
-        private float _hp;
+        public float Max { get; }
+        public float Current { get; private set; }
 
-        public Health(float hp)
+        public Health(float max, float current)
         {
-            _hp = hp;
+            Max = max;
+            Current = current;
         }
 
-        public bool CheckIsDied(float damage)
+        public void ChangeCurrentHealth(float hp)
         {
-            _hp -= damage;
-
-            return _hp <= 0;
+            Current = hp;
         }
     }
 }
