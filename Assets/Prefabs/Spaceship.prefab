@@ -23,12 +23,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1956210071}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.55, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.5500001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8576545982005316844}
+  m_Father: {fileID: 2927697749820409929}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &462942096572025303
@@ -41,7 +41,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8576545982005316844}
   - component: {fileID: 3616199232529136425}
-  - component: {fileID: 1575865005512748098}
   m_Layer: 0
   m_Name: Spaceship
   m_TagString: Untagged
@@ -61,7 +60,7 @@ Transform:
   m_LocalScale: {x: 0.408, y: 0.408, z: 0.408}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1956210072}
+  - {fileID: 2927697749820409929}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -117,21 +116,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1575865005512748098
+--- !u!1 &3438760617005127501
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2927697749820409929}
+  - component: {fileID: 7738805014775639030}
+  m_Layer: 0
+  m_Name: Gun
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2927697749820409929
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3438760617005127501}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1956210072}
+  m_Father: {fileID: 8576545982005316844}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7738805014775639030
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 462942096572025303}
+  m_GameObject: {fileID: 3438760617005127501}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a9aab2290405a244978246bd0594da8, type: 3}
+  m_Script: {fileID: 11500000, guid: 088a390706e13d440b4c9ff46200e1e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 5
-  _acceleration: 5
-  _hp: 100
-  _force: 500
   _bullet: {fileID: 918583360340917246, guid: f49d305569907d742a7b16ba865bae25, type: 3}
-  _barrel: {fileID: 1956210072}
+  _burrel: {fileID: 1956210072}
+  _force: 500
