@@ -46,6 +46,20 @@ namespace Asteroids
             return enemy;
         }
 
+        public static Comet CreateCometEnemy(Health hp)
+        {
+            var enemy = Instantiate(Resources.Load<Comet>("Enemy/Comet"));
+            enemy.Health = hp;
+            return enemy;
+        }
+        
+        public static Supernova CreateSupernovaEnemy(Health hp)
+        {
+            var enemy = Instantiate(Resources.Load<Supernova>("Enemy/Supernova"));
+            enemy.Health = hp;
+            return enemy;
+        } 
+
         public void DependencyInjectHealth(Health hp)
         {
             Health = hp;
